@@ -1,0 +1,17 @@
+server:
+  port: 8089
+  mvc:
+    view:
+      suffix: .html
+      prefix: /
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://sh-cynosdbmysql-grp-f537cl8w.sql.tencentcdb.com:20217/springboot_demo?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    username: root
+    password: Q9JRk7J9
+
+mybatis:
+  mapper-locations: classpath*:mapper/*Mapper.xml
+  debug: true
