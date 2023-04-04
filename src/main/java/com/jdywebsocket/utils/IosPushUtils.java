@@ -45,6 +45,9 @@ public class IosPushUtils {
             final ApnsPayloadBuilder payloadBuilder = new SimpleApnsPayloadBuilder();
             payloadBuilder.setAlertBody(body);
             payloadBuilder.setAlertTitle(title);
+
+            payloadBuilder.setSound("default"); // 铃音 默认
+
             payloadBuilder.setLocalizedAlertTitle("Open App");
 
 
@@ -104,7 +107,7 @@ public class IosPushUtils {
                 .setApnsServer(ApnsClientBuilder.PRODUCTION_APNS_HOST)
 
                 .setClientCredentials(new File("\\ideaProject\\jdy-1919\\src\\main\\resources\\key\\push.p12"), "ly1997.03.08")
-//                .setClientCredentials(new File("E:\\ideaProject\\jdy-1919\\src\\main\\resources\\key\\push.p12"), "ly1997.03.08")
+//                .setClientCredentials(new File("C:\\Users\\asus\\Desktop\\push.p12"), "ly1997.03.08")
 
                 .build();
 
@@ -114,11 +117,12 @@ public class IosPushUtils {
             final ApnsPayloadBuilder payloadBuilder = new SimpleApnsPayloadBuilder();
             payloadBuilder.setAlertBody("您有新的订单等待配送");
             payloadBuilder.setAlertTitle("新订单提醒");
+            payloadBuilder.setSound("default"); // 铃音 默认
             payloadBuilder.setLocalizedAlertTitle("Open App");
 
 
             final String payload = payloadBuilder.build();
-            final String token = TokenUtil.sanitizeTokenString("709bf206719b78e80fca498fdc4746dc7d55dfd4ae443472672865484a7a662e");
+            final String token = TokenUtil.sanitizeTokenString("d8e1752071d7890e3ebc2d1dc26d5404e160833bfaf8d992f5ef4deafac7ec35");
 
             pushNotification = new SimpleApnsPushNotification(token, "uni.UNI0E10694", payload);
         }

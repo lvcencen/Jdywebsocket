@@ -1,5 +1,6 @@
 package com.jdywebsocket.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.jdywebsocket.model.NoticeWebsocketResp;
 import com.jdywebsocket.model.R;
 import com.jdywebsocket.model.UserDto;
@@ -35,6 +36,7 @@ public class WebSocketController {
 
     @PostMapping("/someone")
     public R someone(@RequestBody UserDto userDto){
+        log.info("websocket发送给某个人"+ JSONObject.toJSON(userDto));
         WebSocketServer.sendMessageByUserId(userDto);
         return R.ok();
     }
